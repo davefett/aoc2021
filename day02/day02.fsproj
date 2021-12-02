@@ -13,6 +13,7 @@
     <ItemGroup>
       <Content Include=".dockerignore" />
       <Content Include="Dockerfile" />
+      <Content Include="input02.txt" />
     </ItemGroup>
 
 </Project>
