@@ -3,7 +3,7 @@ open System.IO
 open System.Text.RegularExpressions
 
 [<EntryPoint>]
-let main argv =
+let main _ =
 
     let matchCommand input =
         let m =
@@ -23,7 +23,7 @@ let main argv =
 
     let rec runCommands cmds horiz vert =
         match cmds with
-        | [] -> printfn $"horizontal: %d{horiz} * %d{vert} = %d{horiz * vert}"
+        | [] -> printfn $"without aim: %d{horiz * vert}"
         | (direction: string, dist: int) :: tail ->
             match direction with
             | "forward" -> runCommands tail (horiz + dist) vert
@@ -35,7 +35,7 @@ let main argv =
 
     let rec runCommandsWithAim cmds aim horiz vert =
         match cmds with
-        | [] -> printfn $"horizontal: %d{horiz} * %d{vert} = %d{horiz * vert}"
+        | [] -> printfn $"with aim: %d{horiz * vert}"
         | (direction: string, dist: int) :: tail ->
             match direction with
             | "forward" -> runCommandsWithAim tail aim (horiz + dist) (vert + (aim * dist))
